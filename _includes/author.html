@@ -1,0 +1,12 @@
+<section class="author" itemprop="author" style="overflow-x: hidden;">
+  <div class="details" itemscope itemtype="http://schema.org/Person">
+    <img data-aos-anchor-placement="top-center" itemprop="image" class="img-rounded"
+      src="{{ site.author.photo | prepend: site.baseur }}" alt="{{ site.author.name }}">
+    <p class="def">Автор:</p>
+    <h3 class="name">
+      <a itemprop="name" href="{{ '/about' | prepend: site.baseurl }}">{{ site.author.name }}</a>
+    </h3>
+    <p class="desc">{{ site.author.description }}</p>
+    <a itemprop="email" class="email" href="mailto:{{ site.email }}">{{ site.author.email }}</a>
+  </div>
+</section>

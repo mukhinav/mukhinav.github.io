@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Блог Мухина Александра о программировании и всего что с этим связано"
+description: |
+ Мухин Александр программист, архитектор, тех. лид, Java
+ HiLoad, Distributed System
+image: /assets/img/bg/desk2.jpg
+sitemap: false
+keywords:
+ - java
+ - software developtment
+ - programming
+ - software design
+ - solution architect
+---
+
+<main id="content" class="home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+  {% for post in paginator.posts %}
+  <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <a class="datetime document-load" href="{{ post.url | prepend: site.baseurl }}">
+      <meta itemprop="datePublished" content="{{post.date}}">
+      <time datetime="{{ post.date | date_to_xmlschema }}">
+        <span class="day">
+          {{ post.date | date: "%d" }}
+        </span>
+        <span class="month-year">
+          {{ post.date | date: "%B %Y" }}
+        </span>
+      </time>
+    </a>
+    <div class="content">
+      <a class="document-load" href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+      <p class="description">
+        {{ post.excerpt | strip_html}}
+        <br/>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="link document-load">Продолжить ...</a>
+      </p>
+
+      <div class="tags">
+        {% for tag in post.tags %}
+        <a class="document-load" href="{{ site.baseurl }}/tags/#{{tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+
+  <div id="pg" class="pagination">
+    <span style="float: right">
+      {% if paginator.previous_page %}
+        <a onclick="paginateBlog(this, event)" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="paginate-link paginate-blog">
+          &laquo; Предыдущая страница
+        </a>
+      {% endif %}
+      <span class="page_number ">
+        Стр.: {{ paginator.page }} из {{ paginator.total_pages }}
+      </span>
+      {% if paginator.next_page %}
+        <a onclick="paginateBlog(this, event)" href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="paginate-link paginate-blog">
+          Следующая страница &raquo;
+        </a>
+      {% endif %}
+    </span>
+  </div>
+
+</main>

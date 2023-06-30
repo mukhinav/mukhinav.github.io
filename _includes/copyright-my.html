@@ -1,0 +1,13 @@
+<p>
+  (c)
+  <span itemscope="" itemtype="http://schema.org/Person">
+    <span itemprop="name">{{ site.author.name }}</span>
+  </span>
+  {% assign today_year = 'now' | date: '%Y' | to_integer %}
+  {% assign start_year = site.start_year | to_integer %}
+  {{ start_year }}
+  {% if today_year > start_year %}
+  ... {{ today_year }}
+  {% else %}
+  {% endif %}
+</p>

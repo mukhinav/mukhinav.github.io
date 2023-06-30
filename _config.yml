@@ -1,0 +1,93 @@
+# Site settings
+name: "Блог Мухина Александра"
+title: "Блог Мухина Александра о программировании и всего что с этим связано"
+description: Мухин Александр программист, архитектор, тех. лид, Java, HiLoad, Distributed System
+url: https://mukhinav.github.io
+
+# Author Setting
+author:
+  name: "Mukhin Aleksandr"
+  email: alex.omsk1977@gmail.com
+  description: программист, архитектор, тех. лид, Java, HiLoad, Distributed System, Software design
+  title: Добро пожаловать в мой блог о программировании
+  photo: /assets/img/my/my_256.png
+  by_author: " | Блог Мухина Александра"
+start_year: 2023
+copyright: "(c) Mukhin Aleksandr, 2023"
+github_username:  mukhinav
+instagram_username: aleksandrmukhin_prog
+telegram_username: Mukhin_AV
+facebook_page: profile.php?id=100093415791051&mibextid=ZbWKwL
+error_image_link: <a href="https://www.flaticon.com/ru/free-icons/" title="ошибка иконки">Ошибка иконки от smashingstocks - Flaticon</a>
+
+# Build settings
+timezone: Europe/Moscow
+encoding: utf-8
+published: true
+future: true
+show_drafts: false
+markdown: kramdown
+highlighter: rouge
+# permalink: /:title/
+permalink: :year/:month/:day/:title.html
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# sass config
+sass:
+  style: compressed
+  deploy_style: compressed
+  compile_in_place: false
+  sass_dir: /assets/sass
+
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Начальная страница
+    url: /
+  - title: Категории
+    url: /series
+  - title: Tags
+    url: /tags
+  - title: Обо мне
+    url: /about
+
+feed:
+  title: mukhinav.ru
+  subtitle: Mukhin Aleksandr - java developer, code design
+  path: rss.xml
+
+# pagination config
+paginate: 5
+paginate_path: "page/:num/"
+excerpt_separator: <!--more-->
+
+# plugins
+plugins: 
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+# exclude my node related stuff
+exclude: 
+  - README.md
+  - .sass-cache/
+  - .jekyll-cache/
+  - .bundle/
+  - .publish/
+  - _drafts/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - renovate.json
+  - post.sh
+  - README.md
+  - Rakefile
+
+
