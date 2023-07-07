@@ -7,6 +7,8 @@
       <a itemprop="name" href="{{ '/about' | prepend: site.baseurl }}">{{ site.author.name }}</a>
     </h3>
     <p class="desc">{{ site.author.description }}</p>
-    <a itemprop="email" class="email" href="mailto:{{ site.email }}">{{ site.author.email }}</a>
+  </div>
+  <div class="icons-author">
+    {% include social-network.html %}
   </div>
 </section>
