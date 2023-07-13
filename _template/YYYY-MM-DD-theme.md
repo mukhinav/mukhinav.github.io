@@ -7,6 +7,7 @@ categories:
 image: /assets/img/bg/desk2.jpg
 image_link: image_link
 place: place
+# comment_issue_id: 2
 keywords:
  - keywords
 tags: 

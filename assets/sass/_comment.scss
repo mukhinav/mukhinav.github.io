@@ -1,0 +1,81 @@
+.comment {
+    padding: 5px 0 15px;
+}
+
+#comments p {
+    @extend .content-font;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#comments hr {
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#comments h3 {
+    @extend .content-font;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.comment P:last-child {
+    margin-bottom: 0;
+    
+}
+
+.commentgravatar {
+    position: absolute;
+    width: 40px;
+    border: 1px solid #e5e5e5;
+}
+.commentgravatar img {
+    max-width: 100%;
+    margin: 0;
+    display: block;
+}
+
+.commentheader,
+.commentbody {
+    padding: 5px 10px;
+    margin-left: 55px;
+    border: 1px solid #e5e5e5;
+    background: white;
+    @extend .content-font;
+    font-size: 1rem;
+}
+
+.commentbody p {
+    @extend .content-font;
+    font-size: 1rem;
+    padding-left: 0;
+}
+
+.commentheader {
+    position: relative;
+    background: #f4f4f4;
+    border-bottom: 0;
+}
+
+/* .commentbody {
+    padding: 10px 10px 13px;
+} */
+
+.commentheader a {
+    color: #777777;
+}
+
+.commentheader::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    background: #f4f4f4;
+    transform: rotate(-45deg);
+    left: 0;
+    margin-left: -4px;
+    margin-top: 4px;
+    box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.15);
+}
