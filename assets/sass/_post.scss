@@ -45,9 +45,10 @@
     color: $colorcode;
   }
   a {
-    @extend .main-font;
+    // @extend .main-font;
+    @extend .content-font;
     color: $main;
-    border-bottom: 2px solid $main;
+    border-bottom: 1px dotted $main;
   }
   iframe {
     margin-top: 1.875rem;

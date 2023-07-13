@@ -1,11 +1,14 @@
 ---
 layout: post
 title:  title
-date:   YYYY-MM-DD HH:mm:ss +0300
+date:   YYYY-MM-DD 15:00:00 +0300
 categories: 
  - categories1
 image: /assets/img/bg/desk2.jpg
+image_link: image_link
 place: place
+keywords:
+ - keywords
 tags: 
  - tag1
 ---
@@ -20,10 +23,7 @@ With Markdown, it is possible to emphasize words by making them *italicized*, us
 
 ## Paragraphs
 
-This is what a paragraph looks like. For the purpose of demonstration, the rest of this paragraph and the next paragraph after will mean absolutely nothing. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
-Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
-
+This is what a paragraph looks like. For the purpose of demonstration, the rest of this paragraph and the next paragraph after will mean absolutely nothing. 
 
 ## Headings
 
