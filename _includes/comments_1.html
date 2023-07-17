@@ -1,0 +1,146 @@
+{% if page.comment_issue_id %}
+<script src="/assets/js/lib/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var rem_title = "<hr/><h3>Комментарии:</h3>";
+    var repo = "{{ site.github_username }}/{{ site.github_repo }}";
+    var repo_url = "https://github.com/" + repo + "/issues/{{page.comment_issue_id}}";
+    var rem = rem_title + "<p>Вы можете <a href='" + repo_url + "' target='_blank'>посмотреть комментарии </a> на GitHub.</p>";
+    var rem_err = rem + " Комментарии не могут быть отображены тут, потому что установлен лимит на Github.</p>";
+    
+    document.querySelector("{{ include.element }}").innerHTML = document.querySelector("{{ include.element }}").innerHTML + "<div id='comments'></div>";
+    document.getElementById("comments").innerHTML = rem;
+
+    function readCookie(name) {
+    name += '=';
+    for (var ca = document.cookie.split(/;\s*/), i = ca.length - 1; i >= 0; i--)
+        if (!ca[i].indexOf(name))
+            return ca[i].replace(name, '');
+    }
+
+    function reloadComments() {
+        console.log("rem=", rem);
+        var elements = document.querySelectorAll('.comment');
+        console.log("elements=", elements);
+        Array.prototype.forEach.call(elements, function (el, i) {
+            el.remove();
+        });
+        console.log("url=", "https://api.github.com/repos/{{ site.github_username }}/{{ site.github_repo }}/issues/{{page.comment_issue_id}}/comments?per_page=100");
+        $.ajax("https://api.github.com/repos/{{ site.github_username }}/{{ site.github_repo }}/issues/{{page.comment_issue_id}}/comments?per_page=100", {
+            headers: { Accept: "application/vnd.github.full+json" },
+            dataType: "json",
+            success: function (msg) {
+                console.log("msg=", msg);
+                localStorage.setItem('comments_{{ include.github_account }}_{{page.comment_issue_id}}', JSON.stringify(msg));
+                loadComments(msg);
+            },
+            error: function () {
+                document.getElementById("comments").innerHTML = rem_err;
+            }
+        });
+        return false;
+    }
+    function loadComments(data) {
+        $("#comments").html(rem);
+        console.log("data=", JSON. stringify(data));
+        console.log("data.length=",data.length); 
+        for (var i = 0; i < data.length; i++) {
+            console.log("i=", i);
+            var cuser = data[i].user.login;
+            console.log("data[i].user.login=", data[i].user.login);
+            var cuserlink = "https://www.github.com/" + data[i].user.login;
+            var clink = "https://github.com/{{ include.github_account }}/issues/{{page.comment_issue_id}}#issuecomment-" + data[i].url.substring(data[i].url.lastIndexOf("/") + 1);
+            var cbody = data[i].body_html;
+            console.log("data[i].body_html=", data[i].body_html);
+            {% if include.require_cookie_consent == 'true' %}
+            if (readCookie('cookie-notice-dismissed') == 'true') {
+                var cavatarlink = data[i].user.avatar_url;
+            } else {
+                var cavatarlink = '/img/emptyavatar.png';
+                cbody = cbody.replace(/<img src=/g, "<img data-src=");
+            }
+            {% else %}
+            var cavatarlink = data[i].user.avatar_url;
+            {% endif %}
+            var cdate = data[i].created_at;
+            console.log("cdate=", cdate);
+            document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + "<div class='comment'><div class='commentgravatar'>" + '<img src="' + cavatarlink + '" alt="' + cuser + '">' + "</div><div class='commentheader'><a class='commentuser' href=\"" + cuserlink + "\">" + cuser + "</a> написал <a class='commentdate' href=\"" + clink + "\"> " + cdate.substring(0, 10) + "</a></div><div class='commentbody'>" + cbody + "</div></div>";
+            $('img[data-src]').replaceWith("[Image blocked] ");
+            console.log("=======");
+        }
+    }
+    var data = localStorage.getItem('comments_{{ include.github_account }}_{{page.comment_issue_id}}');
+    console.log("data=", data);
+    if (data) {
+        console.log("data");
+        loadComments(JSON.parse(data));
+    } else {
+        console.log("else");
+        console.log("include.require_cookie_consent={{ include.require_cookie_consent }}");
+        {% if include.require_cookie_consent == 'true' %}
+        if (readCookie('cookie-notice-dismissed') == 'true') reloadComments();
+        else document.getElementById("comments").innerHTML = rem;
+        {% else %}
+        reloadComments();
+        {% endif %}
+    }
+</script>
+<!-- <style>
+    .comment {
+        padding: 5px 0 15px;
+    }
+
+    .comment P:last-child {
+        margin-bottom: 0;
+    }
+
+    .commentgravatar {
+        position: absolute;
+        width: 40px;
+        border: 1px solid #e5e5e5;
+    }
+    .commentgravatar img {
+        max-width: 100%;
+        margin: 0;
+        display: block;
+    }
+
+    .commentheader,
+    .commentbody {
+        padding: 5px 10px;
+        margin-left: 55px;
+        border: 1px solid #e5e5e5;
+        background: white;
+        @extend .content-font;
+        font-size: 1rem;
+    }
+
+    .commentheader {
+        position: relative;
+        background: #f4f4f4;
+        border-bottom: 0;
+    }
+
+    /* .commentbody {
+        padding: 10px 10px 13px;
+    } */
+
+    .commentheader a {
+        color: #777777;
+    }
+
+    .commentheader::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 9px;
+        height: 9px;
+        background: #f4f4f4;
+        transform: rotate(-45deg);
+        left: 0;
+        margin-left: -4px;
+        margin-top: 4px;
+        box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.15);
+    }
+</style> -->
+{% endif %}
