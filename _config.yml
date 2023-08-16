@@ -1,25 +1,26 @@
-# Site settings
-name: "Блог Мухина Александра"
-title: "Блог Мухина Александра о программировании и всего что с этим связано"
-description: Мухин Александр программист, архитектор, тех. лид, Java, HiLoad, Distributed System
+
+skin: "/assets/css/skins/default.css"
+locale: ru
+
+# title: "Блог Мухина Александра о программировании и всего что с этим связано"
+# description: "программист, архитектор, тех. лид, Java, Golang, HiLoad, Distributed System"
+title: "Блог о программировании"
+description: "Мухин Александр - программист, архитектор, tech. lead, Java, Golang, HiLoad & Distributed System, Software design"
+# baseurl: # the subpath of your site
+copyright:  Mukhin Aleksandr 
+start_year: 2023
 url: "https://www.mukhinav.ru"
 
-# Author Setting
+# Site Author
 author:
   name: "Mukhin Aleksandr"
+  picture:
   email: alex.omsk1977@gmail.com
   description: программист, архитектор, тех. лид, Java, HiLoad, Distributed System, Software design
-  title: Добро пожаловать в мой блог о программировании
-  photo: /assets/img/my/my_256.png
-  by_author: " | Блог Мухина Александра"
-start_year: 2023
-copyright: "(c) Mukhin Aleksandr, 2023"
-github_username: mukhinav
-github_repo: mukhinav.github.io
-instagram_username: aleksandrmukhin_prog
-telegram_username: Mukhin_AV
-facebook_page: profile.php?id=100093415791051&mibextid=ZbWKwL
-error_image_link: <a href="https://www.flaticon.com/ru/free-icons/" title="ошибка иконки">Ошибка иконки от smashingstocks - Flaticon</a>
+
+# Настройки
+logo: "/img/logo/logo200x200.png"
+date_format: "%e %B %Y"
 
 # Build settings
 timezone: Europe/Moscow
@@ -31,6 +32,44 @@ markdown: kramdown
 highlighter: rouge
 # permalink: /:title/
 permalink: :year/:month/:day/:title.html
+# permalink: /:categories/:title/
+
+# примерное время чтения статей (вычисление)
+read_time: true
+words_per_minute: 200
+
+
+# mathjax:
+#   enable: # MathJax equations, e.g. true, false (default)
+#   combo:  # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
+#   tags:  # "none", "ams" (default), "all"
+
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+
+# google_analytics: # Google Analytics id, e.g. "UA-NNNNNNNN-N"
+yandex_metrika: 94384827
+# disqus:
+#   shortname: # Disqus shortname, e.g. "my_disqus_shortname"
+# twitter:
+#   username: # site's Twitter username, e.g. "mmistakes"
+
+# Liquid
+liquid:
+  error_mode: strict
+
+feed:
+  title: mukhinav.ru
+  subtitle: Mukhin Aleksandr - java developer, code design
+  path: rss.xml
+
+# Pagination - https://jekyllrb.com/docs/pagination/
+paginate: 5
+paginate_path: "page/:num/"
+excerpt_separator: <!--more-->
 
 # html minify
 compress_html:
@@ -44,38 +83,14 @@ sass:
   style: compressed
   deploy_style: compressed
   compile_in_place: false
-  sass_dir: /assets/sass
 
+# Поиск по сайту
+search_full_content: true # can have performance implications for large sites
 
-# Links to include in menu navigation
-# For external links add external: true
-links:
-  - title: Начальная страница
-    url: /
-  - title: Категории
-    url: /series
-  - title: Tags
-    url: /tags
-  - title: Обо мне
-    url: /about
+# Taxonomy pages
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
 
-feed:
-  title: mukhinav.ru
-  subtitle: Mukhin Aleksandr - java developer, code design
-  path: rss.xml
-
-# pagination config
-paginate: 5
-paginate_path: "page/:num/"
-excerpt_separator: <!--more-->
-
-# plugins
-plugins: 
-  - jekyll-paginate
-  - jekyll-feed
-  - jekyll-sitemap
-
-# exclude my node related stuff
 exclude: 
   - README.md
   - .sass-cache/
@@ -91,4 +106,40 @@ exclude:
   - README.md
   - Rakefile
 
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  
+# Front Matter Defaults
+defaults:
+  # Posts defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      share: false
 
+webmaster_verifications:
+  google: n7hanvGEtHPKf-1JfAjQ5JHqbILxh--Eqdb06eSaWyg
+  yandex: 0741ad84e8247a8f
+
+# Footer Links
+footer_links:
+  - title: Instagram
+    url: https://instagram.com/aleksandrmukhin_prog
+    icon: fab fa-instagram
+  - title: GitHub
+    url: https://github.com/mukhinav
+    icon: fab fa-github-square
+  - title: Telegram
+    url: https://t.me/Mukhin_AV
+    icon: fab fa-telegram
+  - title: Facebook
+    url: https://www.facebook.com/profile.php?id=100093415791051&mibextid=ZbWKwL
+    icon: fab fa-facebook
+  - title: Use the RSS to get updated
+    url: rss.xml
+    icon: fas fa-rss-square

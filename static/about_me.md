@@ -1,5 +1,5 @@
 ---
-layout: minimal
+layout: post
 title: О себе
 permalink: about
 description: |
@@ -7,7 +7,7 @@ description: |
  HiLoad, Distributed System, Software design
 subtitle: |
  Программист с детства ;-)
-image: /assets/img/bg/desk1.jpg
+author: Mukhin Aleksandr
 sitemap: false
 keywords:
  - java
@@ -17,10 +17,8 @@ keywords:
  - solution architect
 ---
 
-## О себе
-
-![О себе]({{ site.baseurl }}/assets/img/my/my_256.png){:class="center_block"}
-
+![О себе]({{ site.baseurl }}/img/auth/my_1_256.jpg){: .align-left}
+{: .text-center}
 Программист с более чем 25 летним стажем работы.
 
 Начиналось все как увлечение компьютерами. 

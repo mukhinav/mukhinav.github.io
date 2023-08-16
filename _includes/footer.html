@@ -1,5 +1,33 @@
-<footer>
-  {% include copyright-my.html %}
-  {% include copyright-image.html %}
+<footer id="footer" class="site-footer">
+  {% include footer-custom.html %}
+
+  {%- if site.footer_links -%}
+    <div class="social-icons">
+      {%- for footer_link in site.footer_links -%}
+        {%- if footer_link.url contains "://" -%}
+          {%- assign url = footer_link.url -%}
+        {%- else -%}
+          {%- assign url = footer_link.url | relative_url -%}
+        {%- endif -%}
+        <a class="social-icon" href="{{ url }}"><i class="{{ footer_link.icon | default: 'fas fa-link' }} fa-2x" title="{{ footer_link.title }}"></i></a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <div class="copyright">
+    {% if site.copyright %}
+    &copy;
+      {% assign today_year = 'now' | date: '%Y' | to_integer %}
+      {% assign start_year = site.start_year | to_integer %}
+      {{ start_year }}
+      {% if today_year > start_year %}
+        ... {{ today_year }}
+      {% else %}
+      {% endif %}
+      {{ site.copyright }}
+    {% else %}
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.</p>
+    {% endif %}
+    <p>{{ site.data.text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple theme</a></p>
+  </div>
 </footer>
-{% include js.html %}

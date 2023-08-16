@@ -1,0 +1,17 @@
+# Sample site navigation bar links
+
+- title: Дом
+  url: /
+- title: Статьи
+  url: /posts/
+- title: Категории
+  url: /categories/
+- title: Тэги
+  url: /tags/
+- title: Поиск по сайту
+  url: /search/
+- title: О себе
+  url: /about
+
+# - title: External Page
+#   url: https://the-page.com/you-want-to-link-to.html

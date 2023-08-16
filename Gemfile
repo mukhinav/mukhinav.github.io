@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "jekyll", "~> 3.9.3"
@@ -25,4 +24,3 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 gem "rake"
 gem "webrick", "~> 1.8"
-

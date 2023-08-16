@@ -1,0 +1,20 @@
+Mukhin Aleksandr:
+  name: "Мухин Александр"
+  email: alex.omsk1977@gmail.com
+  description: программист, архитектор, tech. lead, Java, Golang, HiLoad & Distributed System, Software design
+  picture: /img/auth/my_2.jpg
+  links:
+    - title: Instagram
+      url: https://instagram.com/aleksandrmukhin_prog
+      icon: fab fa-instagram
+    - title: GitHub
+      url: https://github.com/mukhinav
+      icon: fab fa-github-square
+    - title: Telegram
+      url: https://t.me/Mukhin_AV
+      icon: fab fa-telegram
+    - title: Facebook
+      url: https://www.facebook.com/profile.php?id=100093415791051&mibextid=ZbWKwL
+      icon: fab fa-facebook
+    
+
